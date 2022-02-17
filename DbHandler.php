@@ -29,7 +29,6 @@ class DbHandler {
     }
 
     public function addWord() {
-        echo 'ssssssssssssssssssssssssssss';
         $conn = $this->connectToFamilyDB();
         $italian = $_POST['italian'];
         $type = $_POST['type'];
@@ -62,14 +61,12 @@ class DbHandler {
 
     public function addWordCategory() {
         $conn = $this->connectToFamilyDB();
+        $stmt = $conn->prepare("INSERT INTO italiano_wordCategories (categoryName) VALUES (?)");
+        $stmt->bind_param("s",$categoryName);
         $categoryName = $_POST['categoryName'];
-        $sql = "INSERT INTO italiano_wordCategories (categoryName) VALUES ('$categoryName')";
-//        echo $sql;
-        if ($conn->query($sql) === TRUE) {
-            echo "<b>Προστέθηκε το $categoryName</b>";
-        } else {
-            echo "Error";
-        }
+        $stmt->execute();
+        echo "New records created successfully";
+        $stmt->close();
         $conn->close();
     }
 
@@ -193,7 +190,7 @@ class DbHandler {
             }
         }
     }
-    
+
     public function updateNote() {
         $conn = $this->connectToFamilyDB();
         $noteId = $_POST['noteId'];
@@ -208,10 +205,10 @@ class DbHandler {
             }
         }
     }
-    
+
     public function deleteNote() {
         $conn = $this->connectToFamilyDB();
-        $noteId = $_POST['noteId'];        
+        $noteId = $_POST['noteId'];
         if (isset($_POST['deleteNote'])) {
             $sql = "DELETE FROM italiano_note  WHERE noteId = $noteId";
             if ($conn->query($sql) === TRUE) {
@@ -221,7 +218,6 @@ class DbHandler {
             }
         }
     }
-
 
     public function getNotes() {
         $conn = $this->connectToFamilyDB();
@@ -239,7 +235,7 @@ class DbHandler {
             echo '0 results';
         }
     }
-    
+
     public function getNote($noteId) {
         $conn = $this->connectToFamilyDB();
         $sql = "SELECT * FROM italiano_note WHERE noteId = $noteId";
@@ -248,7 +244,7 @@ class DbHandler {
             echo 'μπράβο';
             return $result;
         } else {
-            echo '0 results '.$sql;
+            echo '0 results ' . $sql;
         }
     }
 
