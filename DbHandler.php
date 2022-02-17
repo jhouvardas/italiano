@@ -29,6 +29,7 @@ class DbHandler {
     }
 
     public function addWord() {
+        echo 'ssssssssssssssssssssssssssss';
         $conn = $this->connectToFamilyDB();
         $italian = $_POST['italian'];
         $type = $_POST['type'];
