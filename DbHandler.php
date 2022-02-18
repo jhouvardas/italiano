@@ -30,6 +30,9 @@ class DbHandler {
 
     public function addWord() {
         $conn = $this->connectToFamilyDB();
+         $query = "INSERT INTO italiano_word (italian,greek,gender,plural,articoloD,articoloDP,date,comment,type,categoryId) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ssssssssi", $italian,$greek,$gender,$plural,$articoloD,$articoloDP,$comment,$type,$categoryId);
         $italian = $_POST['italian'];
         $type = $_POST['type'];
         $greek = $_POST['greek'];
@@ -50,12 +53,14 @@ class DbHandler {
         } else {
             $gender = null;
         }
-        $sql = "INSERT INTO italiano_word (italian,greek,gender,plural,articoloD,articoloDP,date,comment,type,categoryId) VALUES ('$italian','$greek','$gender','$plural','$articoloD','$articoloDP',CURDATE(),'$comment','$type',$categoryId)";
-        if ($conn->query($sql) === TRUE) {
-            echo "<b>Προστέθηκε το $italian</b>";
-        } else {
-            echo "Error" . $sql;
-        }
+        $stmt->execute();
+
+//        $sql = "INSERT INTO italiano_word (italian,greek,gender,plural,articoloD,articoloDP,date,comment,type,categoryId) VALUES ('$italian','$greek','$gender','$plural','$articoloD','$articoloDP',CURDATE(),'$comment','$type',$categoryId)";
+//        if ($conn->query($sql) === TRUE) {
+//            echo "<b>Προστέθηκε το $italian</b>";
+//        } else {
+//            echo "Error" . $sql;
+//        }
         $conn->close();
     }
 
