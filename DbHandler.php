@@ -30,7 +30,7 @@ class DbHandler {
 
     public function addWord() {
         $conn = $this->connectToFamilyDB();
-         $query = "INSERT INTO italiano_word (italian,greek,gender,plural,articoloD,articoloDP,comment,type,categoryId) VALUES (?,?,?,?,?,?,?,?,?,?)";
+         $query = "INSERT INTO italiano_word (italian,greek,gender,plural,articoloD,articoloDP,comment,type,categoryId) VALUES (?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("ssssssssi", $italian,$greek,$gender,$plural,$articoloD,$articoloDP,$comment,$type,$categoryId);
         $italian = $_POST['italian'];
@@ -53,6 +53,7 @@ class DbHandler {
             $gender = null;
         }
         $stmt->execute();
+        echo 'Προστέθηκε το '.$italian;
         $conn->close();
     }
 
