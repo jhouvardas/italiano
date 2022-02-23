@@ -71,49 +71,49 @@ class PageMaker {
                                                             <a class="nav-link" href="index.php?action=showDictionary">Λεξικό</a>
                                                         </li>-->
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php?action=findWord"><?=_SEARCHWORD ?></a>
+                                <a class="nav-link" href="index.php?action=findWord"><?php echo _SEARCHWORD ?></a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="index.php?action=debit" id="navbardrop" data-toggle="dropdown">
-                                    Τεστ
+                                    <?php echo _TEST ?>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="index.php?action=testGreekItalian">Ελληνικά - Ιταλικά</a>   
-                                    <a class="dropdown-item" href="index.php?action=testItalianGreek">Ιταλικά - Ελληνικά</a>
+                                    <a class="dropdown-item" href="index.php?action=testGreekItalian"><?php echo _YOURLANGUAGEITALIAN ?></a>   
+                                    <a class="dropdown-item" href="index.php?action=testItalianGreek"><?php echo _ITALIANYOURLANGUAGE ?></a>
                                     <!--<a class="dropdown-item" href="index.php?action=showConiugazione">Κλίσεις ρημάτων</a>-->                                   
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php?action=showConiugazione">Κλίσεις ρημάτων</a>
+                                <a class="nav-link" href="index.php?action=showConiugazione"><?php echo _VERBCONJUGATIONS ?></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php?action=showNotes">Σημειώσεις</a>
+                                <a class="nav-link" href="index.php?action=showNotes"><?php echo _NOTES ?></a>
                             </li>
                             <?php if ($_SESSION['name'] == 'jhouv' || $_SESSION['name'] == 'vagelitsa') { ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="index.php?action=debit" id="navbardrop" data-toggle="dropdown">
-                                        Διαχείριση
+                                        <?php echo _CONTENTMANAGEMENT ?>
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="index.php?action=newWord">Εισαγωγή λέξης</a>   
-                                        <a class="dropdown-item" href="index.php?action=editWord">Διόρθωση λέξης</a>
-                                        <a class="dropdown-item" href="index.php?action=newVerb">Εισαγωγή ρήματος</a>
-                                        <a class="dropdown-item" href="index.php?action=newConiugazione">Εισαγωγή κλίσης ρήματος</a>
-                                        <a class="dropdown-item" href="index.php?action=newSentence">Εισαγωγή πρότασης</a>
-                                        <a class="dropdown-item" href="index.php?action=editSentence">Διόρθωση πρότασης</a>
-                                        <a class="dropdown-item" href="index.php?action=newWordCategory">Νέα κατηγορία λέξεων</a>
-                                        <a class="dropdown-item" href="index.php?action=newNote">Νέα Σημείωση</a>
-                                        <a class="dropdown-item" href="index.php?action=editNote">Διόρθωση Σημείωσης</a>
+                                        <a class="dropdown-item" href="index.php?action=newWord"><?php echo _ADDWORD ?></a>   
+                                        <a class="dropdown-item" href="index.php?action=editWord"><?php echo _EDITWORD ?></a>
+                                        <a class="dropdown-item" href="index.php?action=newVerb"><?php echo _ADDVERB ?></a>
+                                        <a class="dropdown-item" href="index.php?action=newConiugazione"><?php echo _ADDVERBCONJUGATION ?></a>
+                                        <a class="dropdown-item" href="index.php?action=newSentence"><?php echo _ADDSENTENCE ?></a>
+                                        <a class="dropdown-item" href="index.php?action=editSentence"><?php echo _EDITSENTENCE ?></a>
+                                        <a class="dropdown-item" href="index.php?action=newWordCategory"><?php echo _ADDWORDCATEGORY ?></a>
+                                        <a class="dropdown-item" href="index.php?action=newNote"><?php echo _ADDNOTE ?></a>
+                                        <a class="dropdown-item" href="index.php?action=editNote"><?php echo _EDITNOTE ?></a>
                                     </div>
                                 </li>
                             <?php } ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="index.php?action=debit" id="navbardrop" data-toggle="dropdown">
-                                    Γλώσσα
+                                    <?php echo _LANGUAGE ?>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="index.php?lang=langEl">Ελληνικά</a>   
-                                    <a class="dropdown-item" href="index.php?lang=langEn">Αγγλικά</a>
+                                    <a class="dropdown-item" href="index.php?lang=langEl"><?php echo _LANGEL ?></a>   
+                                    <a class="dropdown-item" href="index.php?lang=langEn"><?php echo _LANGEN ?></a>
                                     <!--<a class="dropdown-item" href="index.php?action=showConiugazione">Κλίσεις ρημάτων</a>-->                                   
                                 </div>
                             </li>

@@ -7,7 +7,7 @@ class FormMaker {
     public function addWordCategory() {
         ?>
         <!--<div class="container">-->  
-        <h2>Νέα κατηγορία λέξεων</h2>
+        <h2><?php echo _ADDWORDCATEGORY ?></h2>
         <form action="<?php htmlspecialchars($_SERVER[PHP_SELF]) ?> "  method="post">  
             <div class="form-group">         
                 <label for="categoryName">Όνομα Κατηγορίας:</label>             
@@ -22,7 +22,7 @@ class FormMaker {
     public function addWordForm() {
         ?>        
         <!--<div class="container">-->
-        <h5>Νέα Λέξη</h5>            
+        <h5><?php echo _NEWWORD ?></h5>            
         <form action="<?php htmlspecialchars($_SERVER[PHP_SELF]) ?> " method="post" >
             <?php $this->selectWordTypeAutofocus($type); ?>
             <div class="form-group">
@@ -65,10 +65,10 @@ class FormMaker {
             $this->selectWordCategory();
             ?>  
             <div class="form-group">
-                <label for="comment">Σημείωση</label>
+                <label for="comment"><?php echo _NOTE ?></label>
                 <textarea class="form-control" rows="4" name="comment" id="comment"></textarea>
             </div>
-            <button type="submit" class="btn btn-success" name="submitWord">Υποβολή</button>
+            <button type="submit" class="btn btn-success" name="submitWord"><?php echo _SUBMIT ?></button>
         </form>
         <!--</div>-->
         <?php
@@ -124,7 +124,7 @@ class FormMaker {
         <form action="<?php htmlspecialchars($_SERVER[PHP_SELF]) ?> " method="post" >
             <input type="hidden" id="wordId" name="wordId" value="<?php echo $wordId ?>">
             <div class="form-group">
-                <label for="type">Τύπος:</label>
+                <label for="type"><?php echo _TYPE ?></label>
                 <select class="form-control" id="type" name="type">
                     <option value=""></option>
                     <option value="indicativo">indicativo</option>
@@ -142,10 +142,10 @@ class FormMaker {
                 </select>
             </div>
             <div class="form-group">
-                <label for="coniugazione">Σημείωση</label>
+                <label for="coniugazione"><?php echo _NOTE ?></label>
                 <textarea class="form-control" rows="8" name="coniugazione" id="coniugazione"></textarea>
             </div>
-            <button type="submit" class="btn btn-success" name="submitConiugazione">Υποβολή</button>
+            <button type="submit" class="btn btn-success" name="submitConiugazione"><?php echo _SUBMIT ?></button>
         </form>
         <!--</div>-->
         <?php
@@ -155,15 +155,15 @@ class FormMaker {
         ?>
 
         <!--<div class="container">-->
-        <h5>Νέα Σημείωση</h5>
+        <h5><?php echo _ADDNOTE ?></h5>
         <form action="<?php htmlspecialchars($_SERVER[PHP_SELF]) ?> " method="post" >
             <?php // $this->selectStudent(); ?>
             <?php $this->selectDate(); ?>
             <div class="form-group">
-                <label for="note">Σημείωση</label>
+                <label for="note"><?php echo _NOTE ?></label>
                 <textarea class="form-control" rows="4" name="note" id="note"></textarea>
             </div>
-            <button type="submit" class="btn btn-success" name="submitNote">Υποβολή</button>
+            <button type="submit" class="btn btn-success" name="submitNote"><?php echo _SUBMIT ?></button>
         </form>
         <!--</div>-->
         <?php
@@ -187,10 +187,10 @@ class FormMaker {
     public function editNoteForm($noteResource) {
         ?>        
         <!--<div class="container">-->
-        <h5>Διόρθωση Σημείωσης</h5>
+        <h5><?php echo _EDITNOTE ?></h5>
         <form action="<?php htmlspecialchars($_SERVER[PHP_SELF]) ?> " method="post" >
             <div class="form-group">
-                <label for="note">Σημείωση</label>
+                <label for="note"><?php echo _NOTE ?></label>
                 <textarea class="form-control" rows="4" name="note" id="note">
                     <?php
                     while ($row = $noteResource->fetch_assoc()) {
@@ -201,7 +201,7 @@ class FormMaker {
                 </textarea>
                 <input type="hidden" id="noteId" name="noteId" value="<?php echo $noteId; ?>">
             </div>
-            <button type="submit" class="btn btn-success" name="updateNote">Υποβολή</button>
+            <button type="submit" class="btn btn-success" name="updateNote"><?php echo _SUBMIT ?></button>
         </form>
         <!--</div>-->
         <?php
@@ -275,7 +275,7 @@ class FormMaker {
         $row = $wordResource->fetch_assoc();
         ?>        
         <!--<div class="container">-->
-        <h5>Διόρθωση Λέξης</h5>
+        <h5><?php echo _EDITWORD ?></h5>
         <form action="<?php htmlspecialchars($_SERVER[PHP_SELF]) ?> " method="post" >
             <input type="hidden" id="custId" name="wordId" value="<?php echo $row['wordId'] ?>">
             <div class="form-group">
@@ -347,7 +347,7 @@ class FormMaker {
             $this->selectWordCategory();
             $this->selectWordType($type);
             ?>
-            <button type="submit" class="btn btn-success" name="startTest">Υποβολή</button>
+            <button type="submit" class="btn btn-success" name="startTest"><?php echo _SUBMIT ?></button>
         </form>
         <!--</div>-->
         <?php
@@ -357,13 +357,13 @@ class FormMaker {
         ?>
 
         <!--<div class="container">-->
-        <h5>Αναζήτηση λέξης</h5>
+        <h5><?php echo _SEARCHWORD ?></h5>
         <form action="<?php htmlspecialchars($_SERVER[PHP_SELF]) ?> " method="post" >
             <div class="form-group">
-                <label for="word" class="form-label">Λέξη</label>                
+                <label for="word" class="form-label"><?php echo _WORD ?></label>                
                 <input type="text" class="form-control" id="word" name="word" autofocus>                
             </div>
-            <button type="submit" class="btn btn-success" name="findWord">Υποβολή</button>
+            <button type="submit" class="btn btn-success" name="findWord"><?php echo _SUBMIT ?></button>
         </form>
         <!--</div>-->
         <?php
@@ -397,7 +397,7 @@ class FormMaker {
 
     public function addVerbForm() {
         ?>
-        <h5>Νέο Ρήμα</h5>
+        <h5><?php echo _ADDVERB ?></h5>
         <!--<div class="container">-->
         <form action="<?php htmlspecialchars($_SERVER[PHP_SELF]) ?> " method="post" >
             <div class="form-group">
@@ -410,10 +410,10 @@ class FormMaker {
             </div>
 
             <div class="form-group">
-                <label for="comment">Σημείωση</label>
+                <label for="comment"><?php echo _NOTE ?></label>
                 <textarea class="form-control" rows="4" name="comment" id="comment"></textarea>
             </div>
-            <button type="submit" class="btn btn-success" name="submitVerb">Υποβολή</button>
+            <button type="submit" class="btn btn-success" name="submitVerb"><?php echo _SUBMIT ?></button>
         </form>
         <!--</div>-->
         <?php
@@ -437,7 +437,7 @@ class FormMaker {
                 <textarea id="mytextarea" name="test"></textarea>
 
             </div>
-            <button type="submit" class="btn btn-success" name="submitVerb">Υποβολή</button>
+            <button type="submit" class="btn btn-success" name="submitVerb"><?php echo _SUBMIT ?></button>
         </form>
         <!--</div>-->
         <?php
@@ -503,7 +503,7 @@ class FormMaker {
                     </label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success" name="displayDictionary">Submit</button>
+            <button type="submit" class="btn btn-success" name="displayDictionary"><?php echo _SUBMIT ?></button>
         </form>
         <!--</div>-->
         <?php
@@ -512,7 +512,7 @@ class FormMaker {
     public function selectDate() {
         ?>
         <div class="mb-3">  
-            <label for="date">Ημερομηνία:</label>             
+            <label for="date"><?php echo _DATE ?>:</label>             
             <input type="date" class="form-control" id="date" placeholder="Ημερομηνία" name="date" required>  
         </div> 
         <?php
@@ -521,7 +521,7 @@ class FormMaker {
     public function selectDateLocal() {
         ?>
         <div class="mb-3">  
-            <label for="date">Ημερομηνία:</label>             
+            <label for="date"><?php echo _DATE ?>:</label>             
             <input type="datetime-local" class="form-control" id="date" placeholder="Ημερομηνία" name="date" required>  
         </div> 
         <?php
@@ -539,7 +539,7 @@ class FormMaker {
     public function selectDateNotRequired() {
         ?>
         <div class="mb-3">  
-            <label for="date">Ημερομηνία:</label>             
+            <label for="date"><?php echo _DATE ?>:</label>             
             <input type="date" class="form-control" id="date" placeholder="Ημερομηνία" name="date">  
         </div> 
         <?php
@@ -621,7 +621,7 @@ class FormMaker {
         $wordCategoryList = new DbHandler();
         ?>
         <div class="form-group">         
-            <label for="categoryId">Κατηγορία:</label>  
+            <label for="categoryId"><?php echo _CATEGORY ?>:</label>  
             <select class="form-control" id="categoryId" name="categoryId">             
                 <?php
                 $result = $wordCategoryList->getWordCategories();
@@ -639,7 +639,7 @@ class FormMaker {
         $wordCategoryList = new DbHandler();
         ?>
         <div class="form-group">         
-            <label for="type">Τύπος:</label>  
+            <label for="type"><?php echo _TYPE ?>:</label>  
             <select class="form-control" id="categoryId" name="type">             
                 <?php
                 $result = $wordCategoryList->getTypes();
@@ -662,7 +662,7 @@ class FormMaker {
         $wordCategoryList = new DbHandler();
         ?>
         <div class="form-group">         
-            <label for="type">Τύπος:</label>  
+            <label for="type"><?php echo _TYPE ?>:</label>  
             <select class="form-control" id="categoryId" name="type" autofocus="">             
                 <?php
                 $result = $wordCategoryList->getTypes();
@@ -685,7 +685,7 @@ class FormMaker {
         $wordCategoryList = new DbHandler();
         ?>
         <div class="form-group">         
-            <label for="categoryId">Κατηγορία:</label>  
+            <label for="categoryId"><?php echo _CATEGORY ?></label>  
             <select class="form-control" id="categoryId" name="categoryId">             
                 <?php
                 $result = $wordCategoryList->getWordCategories();
