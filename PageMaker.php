@@ -35,6 +35,25 @@ class PageMaker {
                 </script>
                 <script src="myJavaScripts.js.js"></script>                
             </head>
+            <?php
+            session_start();
+
+// Set Language variable
+            if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+                $_SESSION['lang'] = $_GET['lang'];
+
+                if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+                    echo "<script type='text/javascript'> location.reload(); </script>";
+                }
+            }
+
+// Include Language file
+            if (isset($_SESSION['lang'])) {
+                include $_SESSION['lang'] . ".php";
+            } else {
+                include "langEn.php";
+            }
+            ?>
             <body class="bg-light text-dark">
                 <?php
             }
@@ -48,11 +67,11 @@ class PageMaker {
                     </button>
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav">                            
-<!--                            <li class="nav-item">
-                                <a class="nav-link" href="index.php?action=showDictionary">Λεξικό</a>
-                            </li>-->
+                            <!--                            <li class="nav-item">
+                                                            <a class="nav-link" href="index.php?action=showDictionary">Λεξικό</a>
+                                                        </li>-->
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php?action=findWord">Αναζήτηση λέξης</a>
+                                <a class="nav-link" href="index.php?action=findWord"><?=_SEARCHWORD ?></a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="index.php?action=debit" id="navbardrop" data-toggle="dropdown">
@@ -88,6 +107,16 @@ class PageMaker {
                                     </div>
                                 </li>
                             <?php } ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="index.php?action=debit" id="navbardrop" data-toggle="dropdown">
+                                    Γλώσσα
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="index.php?lang=langEl">Ελληνικά</a>   
+                                    <a class="dropdown-item" href="index.php?lang=langEn">Αγγλικά</a>
+                                    <!--<a class="dropdown-item" href="index.php?action=showConiugazione">Κλίσεις ρημάτων</a>-->                                   
+                                </div>
+                            </li>
                         </ul>
                     </div>  
                 </nav>
