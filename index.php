@@ -29,7 +29,6 @@ $page->displayHeadMatter();
         <div class="col">
             <?php
             switch (@$_REQUEST['action']) {
-
                 case 'newWord':
                     if (isset($_POST['submitWord'])) {
                         $exists = $db->checkIfWordExists();

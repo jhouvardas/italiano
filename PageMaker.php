@@ -12,11 +12,9 @@ class PageMaker {
                 <title>Italiano</title>
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> 
                 <link rel="stylesheet" href="myCSS.css">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
                 <link rel="icon" href="images/favicon.jpg" sizes="16x16" type="image/jpg">
                 <script src="https://cdn.tiny.cloud/1/00egprfeg5a0fti37lygyyjkx7k4qrv5y3mm1d208ebhi99j/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
                 <script>
@@ -60,65 +58,68 @@ class PageMaker {
 
             public function displayMenu() {
                 ?>
-                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a class="navbar-brand" href="#">Italiano</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul class="navbar-nav">                            
-                            <!--                            <li class="nav-item">
-                                                            <a class="nav-link" href="index.php?action=showDictionary">Λεξικό</a>
-                                                        </li>-->
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php?action=findWord"><?php echo _SEARCHWORD ?></a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="index.php?action=debit" id="navbardrop" data-toggle="dropdown">
-                                    <?php echo _TEST ?>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="index.php?action=testGreekItalian"><?php echo _YOURLANGUAGEITALIAN ?></a>   
-                                    <a class="dropdown-item" href="index.php?action=testItalianGreek"><?php echo _ITALIANYOURLANGUAGE ?></a>
-                                    <!--<a class="dropdown-item" href="index.php?action=showConiugazione">Κλίσεις ρημάτων</a>-->                                   
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php?action=showConiugazione"><?php echo _VERBCONJUGATIONS ?></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php?action=showNotes"><?php echo _NOTES ?></a>
-                            </li>
-                            <?php if ($_SESSION['name'] == 'jhouv' || $_SESSION['name'] == 'vagelitsa') { ?>
+
+                <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Italiano</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="mynavbar">
+                            <ul class="navbar-nav me-auto">                            
+                                <!--                            <li class="nav-item">
+                                                                <a class="nav-link" href="index.php?action=showDictionary">Λεξικό</a>
+                                                            </li>-->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.php?action=findWord"><?php echo _SEARCHWORD ?></a>
+                                </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="index.php?action=debit" id="navbardrop" data-toggle="dropdown">
-                                        <?php echo _CONTENTMANAGEMENT ?>
+                                    <a class="nav-link dropdown-toggle" href="index.php?action=debit" role="button" data-bs-toggle="dropdown">
+                                        <?php echo _TEST ?>
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="index.php?action=newWord"><?php echo _ADDWORD ?></a>   
-                                        <a class="dropdown-item" href="index.php?action=editWord"><?php echo _EDITWORD ?></a>
-                                        <a class="dropdown-item" href="index.php?action=newVerb"><?php echo _ADDVERB ?></a>
-                                        <a class="dropdown-item" href="index.php?action=newConiugazione"><?php echo _ADDVERBCONJUGATION ?></a>
-                                        <a class="dropdown-item" href="index.php?action=newSentence"><?php echo _ADDSENTENCE ?></a>
-                                        <a class="dropdown-item" href="index.php?action=editSentence"><?php echo _EDITSENTENCE ?></a>
-                                        <a class="dropdown-item" href="index.php?action=newWordCategory"><?php echo _ADDWORDCATEGORY ?></a>
-                                        <a class="dropdown-item" href="index.php?action=newNote"><?php echo _ADDNOTE ?></a>
-                                        <a class="dropdown-item" href="index.php?action=editNote"><?php echo _EDITNOTE ?></a>
+                                        <a class="dropdown-item" href="index.php?action=testGreekItalian"><?php echo _YOURLANGUAGEITALIAN ?></a>   
+                                        <a class="dropdown-item" href="index.php?action=testItalianGreek"><?php echo _ITALIANYOURLANGUAGE ?></a>
+                                        <!--<a class="dropdown-item" href="index.php?action=showConiugazione">Κλίσεις ρημάτων</a>-->                                   
                                     </div>
                                 </li>
-                            <?php } ?>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="index.php?action=debit" id="navbardrop" data-toggle="dropdown">
-                                    <?php echo _LANGUAGE ?>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="index.php?lang=langEl"><?php echo _LANGEL ?></a>   
-                                    <a class="dropdown-item" href="index.php?lang=langEn"><?php echo _LANGEN ?></a>
-                                    <!--<a class="dropdown-item" href="index.php?action=showConiugazione">Κλίσεις ρημάτων</a>-->                                   
-                                </div>
-                            </li>
-                        </ul>
-                    </div>  
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.php?action=showConiugazione"><?php echo _VERBCONJUGATIONS ?></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.php?action=showNotes"><?php echo _NOTES ?></a>
+                                </li>
+                                <?php if ($_SESSION['name'] == 'jhouv' || $_SESSION['name'] == 'vagelitsa') { ?>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="index.php?action=debit" role="button" data-bs-toggle="dropdown">
+                                            <?php echo _CONTENTMANAGEMENT ?>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="index.php?action=newWord"><?php echo _ADDWORD ?></a>   
+                                            <a class="dropdown-item" href="index.php?action=editWord"><?php echo _EDITWORD ?></a>
+                                            <a class="dropdown-item" href="index.php?action=newVerb"><?php echo _ADDVERB ?></a>
+                                            <a class="dropdown-item" href="index.php?action=newConiugazione"><?php echo _ADDVERBCONJUGATION ?></a>
+                                            <a class="dropdown-item" href="index.php?action=newSentence"><?php echo _ADDSENTENCE ?></a>
+                                            <a class="dropdown-item" href="index.php?action=editSentence"><?php echo _EDITSENTENCE ?></a>
+                                            <a class="dropdown-item" href="index.php?action=newWordCategory"><?php echo _ADDWORDCATEGORY ?></a>
+                                            <a class="dropdown-item" href="index.php?action=newNote"><?php echo _ADDNOTE ?></a>
+                                            <a class="dropdown-item" href="index.php?action=editNote"><?php echo _EDITNOTE ?></a>
+                                        </div>
+                                    </li>
+                                <?php } ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="index.php?action=debit" role="button" data-bs-toggle="dropdown">
+                                        <?php echo _LANGUAGE ?>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="index.php?lang=langEl"><?php echo _LANGEL ?></a>   
+                                        <a class="dropdown-item" href="index.php?lang=langEn"><?php echo _LANGEN ?></a>
+                                        <!--<a class="dropdown-item" href="index.php?action=showConiugazione">Κλίσεις ρημάτων</a>-->                                   
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>  
+                    </div>
                 </nav>
                 <?php
             }
